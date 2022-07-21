@@ -1,0 +1,53 @@
+
+<div class="header">
+  Cursos Disponíveis
+</div>
+
+<div class="container-add-course">
+  <button mat-mini-fab color="accent">
+    <mat-icon (click)="onAdd()">add</mat-icon>
+  </button>
+</div>
+
+<div class="container">
+  <table *ngIf="courses$ | async as courses; else loading" mat-table [dataSource]="courses">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Curso </th>
+      <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+      <td mat-cell *matCellDef="let course"> {{ course.category }}
+        <mat-icon> {{ course.category | category }}</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let course">
+        <button mat-icon-button color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+
+</div>
+
+
+
+
+

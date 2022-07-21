@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import '@angular/material';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.header {
+  background: #3f51b5;
+  color: #fff;
+  padding: 25px 16px;
+  display: flex;
+  align-items: flex-end;
+  height: 75px;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
